@@ -11,6 +11,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('plugins/bootbox/bootbox.min.js') }}"></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -84,7 +85,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{asset('home')}}" style="color: white;font-size: initial"><i class="fa fa-user-md" aria-hidden="true" style="color: white;font-size: 16px;"></i> Médico <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{asset('atendimento_medico')}}" style="color: white;font-size: initial"><i class="fa fa-user-md" aria-hidden="true" style="color: white;font-size: 16px;"></i> Médico <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{asset('exame')}}" style="color: white;font-size: initial"><i class="fa fa-stethoscope" aria-hidden="true" style="color: white;font-size: 16px;"></i> Exames Disponíveis</a>

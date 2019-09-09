@@ -13,6 +13,16 @@
                     </div>
                     @endif
                 </div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Alerta!</h5>
+                        <p class="card-text">Foi implementado o compartilhamento de Informações com as Outras Unidades.</p>
+<!--                        <a href="#" class="btn btn-primary">Go somewhere</a>-->
+                    </div>
+                    <div class="card-footer text-muted">
+                        Teve inicio ao 12 de Agosto 
+                    </div>
+                </div>
             </div>
         </div>
     </div>
