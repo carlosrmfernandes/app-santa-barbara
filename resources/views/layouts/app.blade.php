@@ -11,6 +11,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
+<!--        <script src="{{ asset('js/view/componentes/m-datatable.js') }}"></script>-->
         <script src="{{ asset('plugins/bootbox/bootbox.min.js') }}"></script>
 
         <!-- Fonts -->

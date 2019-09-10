@@ -15,7 +15,8 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    @component('exames.componente.table')                  
+
+                    @component('componentes.m-datatable',['id'=>'hospital-table'])   
                     @endcomponent
 
                 </div>

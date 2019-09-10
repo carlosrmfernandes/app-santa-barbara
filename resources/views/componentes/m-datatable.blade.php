@@ -9,7 +9,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody id="hospital-table">
+        <tbody id="{{$id}}">
 
         </tbody>
     </table>
