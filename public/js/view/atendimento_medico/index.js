@@ -3,6 +3,7 @@ $(document).ready(function () {
 //    get();
     save();
     $("#openModal").on('click', function () {
+        $(":input").val('');
         $('#services-table tr').detach();
         $('#atendimento_medicoModal #hospital').val("").prop("disabled", false);
         $('#add-exame').show();
@@ -14,21 +15,23 @@ $(document).ready(function () {
     });
 
     function save() {
-        $('#atendimento-medico-form').submit(function () {
+        $('#atendimento-medico-form').submit(function (e) {
+
             var message = {
                 message: 'MSH|^~\\&|ADT1|GOOD HEALTH HOSPITAL|GHH LAB, INC.|GOOD HEALTH HOSPITAL|198808181126|SECURITY|ADT^A01^ADT_A01|MSG00001|T|2.6\n\
 EVN||200609282108||02|Interface^HL7 Interface|200609282108\n\
-PID|||56782445^^^UAReg^PI||KLEINSAMPLE^BARRY^Q^JR||19620910|M||2028-9^^HL70005^RA99113^^XYZ|260 GOODWIN CREST DRIVE^^BIRMINGHAM^AL^35209^^M~NICKELL’S PICKLES^10000 W 100TH AVE^BIRMINGHAM^AL^35200^^O|||||||0105I30001^^^99DEF^AN\n\
-NTE|1|L|NOTE: Submission of serum'
+PID|||' + $('#identificacao_paciente').val() + '^^^' + $('#dg_verificacao_id').val() + '^' + $('#esquema_verificacao').val() + '||' + $('#sobre_nome').val() + '^' + $('#nome').val() + '||' + $('#data_mascimento').val() + '|' + $('#sexo').val() + '|||' + $('#endereco').val() + '^^ ^' + $('#cidade').val() + '^ ^^ ^' + $('#pais').val() + '^ ^ ^ ^^ ||' + $('#telefone').val() + '||||| ^^^ ^ \n\
+NTE|1|L|' + $('#comment').val() + '\n\
+OBR|1||' + $('#numero_pedido_preenchimento').val() + '|' + $('#id_servico_univesal').val() + '^' + $('#nome_textual').val() + '|' + $('#prioridade').val() + '|' + $('#data_solicitada').val() + '|' + $('#data_observacao').val() + '|' + $('#data_termino_observacao').val() + '||||||||' + $('#id_provedor').val() + '^DOCTOR^' + $('#nome_provedor').val() + ' ^^^ ^^^ ^ ^^^ |' + $('#telefone_obr').val() + '||||||||||^^^ | ^^ ^^^ ^^^ ^ ^^^ ^ ^ ^^^ ^^^ ^ ^^^ |||| '
             }
-            $.post(enderecoServidorApi + '/hl7-api/public/V1/message', message).done(function (res) {
-
+            $.post(enderecoServidorApi + '/hl7-api/public/V1/message', message).done((res) => {
+                $('#atendimento_medicoModal').modal('hide');
+                bootbox.alert("Atendimento feito com Succeo os Dados do " + $('#nome').val() + " foi partilhado com outras unidades.");
+            }).fail(() => {
+                bootbox.alert("Erro na menssagem obs: A menssagem precisa estar no padrão HL7 v2.6!");
             });
-
             return false;
         });
-
-
     }
 
 
@@ -39,21 +42,6 @@ NTE|1|L|NOTE: Submission of serum'
 //                addLinhaTablePrinciMain(intens);
 //            });
 //        });
-//    }
-//    function save() {
-//        $('#services-form').submit(function () {
-//            var url = $('#asset').val() + 'criar_alerta';
-//            var param = $(this).serialize();
-//            $.post(enderecoServidorApi + '/hl7-api/public/V1/criar_hospital', param)
-//                    .done(function (ret) {
-//                        bootbox.alert(ret);
-//                        $('#hospital-table tr').detach();
-//                        $('#atendimento_medicoModal').modal('hide');
-//                        get();
-//                    });
-//            return false;
-//        });
-//
 //    }
 //    function addLinhaTablePrinciMain(intens) {
 //        var tr = $('<tr>');
