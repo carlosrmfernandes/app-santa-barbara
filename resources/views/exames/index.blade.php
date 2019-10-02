@@ -37,7 +37,7 @@
                 <form id="services-form">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Hospital:</label>
-                        <input type="text" class="form-control" id="hospital" name="hospital">
+                        <input type="text" class="form-control" id="hospital" name="hospital" required>
                     </div>
 
                     <div class="row">
@@ -62,7 +62,7 @@
                             </button>
                         </div>
                     </div>
-
+                    
                     <div class="table-responsive-xl">
                         <div id="table">
                             <table class="table table-striped table-hover">
