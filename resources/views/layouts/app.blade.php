@@ -23,6 +23,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
+        <!--value="http://localhost:8888"-->
         <input type="text" style="display: none" id="endereco_servidor_api" value="http://localhost:8888"/>
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
